@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# prints holberton with a for loop
+i=0
+until [ $i -ge 10 ]
+do
+	echo "Holberton School"
+	((i++))
+done
