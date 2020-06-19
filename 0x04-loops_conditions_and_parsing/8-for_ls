@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# for ls prints files with formatted names
+# shellcheck disable=SC1007
+k= /bin/ls | cut -d '-' -f 2
+
+for j in $k
+do
+	echo "$j"
+done
