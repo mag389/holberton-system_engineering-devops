@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #displays an antire clocks times
 i=0
-while [ $i -le 12 ]
+while [ $i -lt 12 ]
 do
 	j=0
 	echo "Hour: $i"
