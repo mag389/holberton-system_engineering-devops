@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# gets only liens with bash process
+ps f -A u x | grep bash

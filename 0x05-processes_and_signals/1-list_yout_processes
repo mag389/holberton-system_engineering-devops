@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# lists all processes in a certain form
-ps f -A u x
