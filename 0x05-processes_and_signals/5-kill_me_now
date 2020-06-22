@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#kill the proces by sending signal
+i=$(pgrep -f infinity)
+kill -9 "$i"
