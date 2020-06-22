@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#killing process easier
+pkill -SIGTERM -f "7-highlander"
