@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# infiinity and beyond with more constraints
+sudo touch "/var/run/holbertonscript.pid"
+#j=$(pgrep -f '100-process_and_pid_file')
+echo $$ > '/var/run/holbertonscript.pid'
+
+i=0
+
+trap 'echo "I hate the kill command"; i=1' SIGTERM
+trap 'echo "Y U no love me?!"; i=1' SIGINT
+trap 'i=1' SIGQUIT
+
+while [ $i -eq 0 ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
+if test -e "/var/run/holbertonscript.pid"
+then
+	sudo rm '/var/run/holbertonscript.pid'
+fi
