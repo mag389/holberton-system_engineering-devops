@@ -1,0 +1,44 @@
+﻿https://photos.app.goo.gl/J6GWNiLVBCvmZCUT7
+
+
+Web Infrastructure Design
+1: lamp diagram: 
+Linux: the os
+Apache: web server
+Mysql: database management
+Php(or python): for back end of it
+
+
+Must include 
+You must use:
+* 1 server
+* 1 web server (Nginx)
+   * Instead of apache
+* 1 application server
+* 1 application files (your code base)
+* 1 database (MySQL)
+* 1 domain name foobar.com configured with a www record that points to your server IP 8.8.8.8
+Explain
+You must be able to explain some specifics about this infrastructure:
+* What is a server
+   * A piece of hardware or software that provides functionality to clients.  client server model.  Provide various functionality like sharing data or performing computation for a client.   A single server can serve multiple clients, and a single client can use multiple servers.
+   * A web server is a software that delivers web pages. A server is an actual computer.
+* What is the role of the domain name
+   * Domain names serve to identify Internet resources, such as computers, networks, and services, with a text-based label that is easier to memorize than the numerical addresses used in the Internet protocols. 
+* What type of DNS record www is in www.foobar.com
+   * The use of www.example.com gives you the opportunity to use a CNAME for www that points to your CDN, while leaving the required NS and SOA records on example.com. The example.com record will usually also have an A record to point to a host that will redirect to www.example.com using an HTTP redirect.
+* What is the role of the web server
+   * A web server is a software that delivers web pages. A server is an actual computer.
+   * Server soft or hardware that satisfies client requests on the world wide web
+   * https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server
+* What is the role of the application server
+   * Just a server specifically designed to run applications such as webapps, data processing, software distribution.
+* What is the role of the database
+   * Holds all permanent data about the website, to be more specific depends on the site, twitter holds users tweets etc, our airbnb had a database to hold many things like reviews users, locations etc.
+* What is the server using to communicate with the computer of the user requesting the website
+   * Depends which server: the web server uses TCP/IP.
+Issues
+* You must be able to explain what the issues are with this infrastructure:
+   * SPOF: Single point of failure
+   * Downtime when maintenance needed (like deploying new code web server needs to be restarted)
+   * Cannot scale if too much incoming traffic
