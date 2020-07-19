@@ -1,0 +1,40 @@
+https://photos.app.goo.gl/7qGiRVewE6crpXV67
+
+You must add
+* 3 firewalls
+	* for security
+* 1 SSL certificate to serve www.foobar.com over HTTPS
+	* to enable https
+* 3 monitoring clients (data collector for Sumologic or other monitoring services)
+	* to mointor the data, depends on what is being monitored, monitor could be for web server
+		or application
+
+You must be able to explain some specifics about this infrastructure:
+* For every additional element, why you are adding it
+	* answered above
+* What are firewalls for
+	* security purposes to avoid breaches
+* Why is the traffic served over HTTPS
+	* so that it's encrypted the entire time
+* What monitoring is used for
+	* getting data about your running software and making sure it is behaving as expected
+* How the monitoring tool is collecting data
+	* many ways, usually for hardware monitoring it keeps track of things like CPU usage, memoory, 
+		disk, and network overloa
+	* as an example NewRelic monitoring tool uses javascript that collects info and sends 
+		it to their servers
+* Explain what to do if you want to monitor your web server QPS
+	* for qps for example, the monitor would track how much the servers query the database
+
+You must be able to explain what the issues are with this infrastructure:
+* Why terminating SSL at the load balancer level is an issue
+	* all traffic is unencrypted between load balancer and servers, if the balancer is off-site
+		that presents obvious problems
+* Why having only one MySQL server capable of accepting writes is an issue
+	* the master/primary database structure can introduce an additional single point of failure
+	* depending on the website and how much writing must be done it may bottleneck around that
+* Why having servers with all the same components (database, web server and application server) might be a problem
+	* it duplicates architecture without regard for use case, for instance you might only need more 
+		web servers to handle the requests, but not any more application server 
+		computer power, so you;re adding whole additional servers when you only need 
+		more of individual parts
