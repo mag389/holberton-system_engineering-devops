@@ -1,0 +1,30 @@
+https://photos.app.goo.gl/AYRwp7asx74gfoyDA
+
+This time a three server implementation.
+
+You must add:
+* 2 servers
+	* to add to total capacity of website and make it redundant
+* 1 web server (Nginx)
+* 1 application server
+	* web and app server serve the same purpose as previous assignment
+* 1 load-balancer (HAproxy)
+	* distributes load/requests among the multiple servers, based on an algorithm usually around workload
+* 1 set of application files (your code base)
+	* to run the application on the new servers
+* 1 database (MySQL)
+	* to access database on new servers
+
+You must be able to explain some specifics about this infrastructure:
+* For every additional element, why you are adding it
+	* Answered in add section
+* What distribution algorithm your load balancer is configured with and how it works
+	* HAProxy can use several algorithms, a good one is Weighted Round Robin which distributes 
+		based on current weight on each server.
+* Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both
+	* This is an active active configuration. all the servers are active at once.
+* How a database Primary-Replica (Master-Slave) cluster works
+	* Only one of the servers has write access to the primary/master database
+		the other servers only have read access, instead they use the replica/slave db's
+* What is the difference between the Primary node and the Replica node in regard to the application
+	* As previously said, the primary node is the one that does the writing
