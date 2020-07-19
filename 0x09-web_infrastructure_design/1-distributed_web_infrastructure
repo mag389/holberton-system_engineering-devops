@@ -28,3 +28,10 @@ You must be able to explain some specifics about this infrastructure:
 		the other servers only have read access, instead they use the replica/slave db's
 * What is the difference between the Primary node and the Replica node in regard to the application
 	* As previously said, the primary node is the one that does the writing
+
+- Where are the spof:
+	only the load balancer in this case because the other parts all have parallel implementation.
+	for this to be the case the master databse must switch on failure
+- Security issues
+	there's no firewall, now https, susceptible to nay number of attacks.
+- additionally there's no monitoring
