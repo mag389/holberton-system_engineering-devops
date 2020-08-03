@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# bash script to use a rsa private key
+ssh -i ~/.ssh/holberton ubuntu@35.227.79.31
