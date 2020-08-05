@@ -2,4 +2,5 @@
 # installs nginx on the remote web server
 sudo apt-get -y update
 sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
 sudo bash -c 'echo "Holberton School" > /var/www/html/index.nginx-debian.html '
