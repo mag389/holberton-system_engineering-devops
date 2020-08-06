@@ -5,12 +5,10 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 mkdir -p /var/www/html
 sudo service nginx restart
+
 sudo bash -c 'echo "Holberton School" > /var/www/html/index.html'
 newstring='rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;'
 sudo sed -i "/# SSL configuration/$newstring/" /etc/nginx/sites-enabled/default
 sudo service nginx restart
 # sudo bash -c 'echo "Holberton School" > /var/www/html/index.nginx-debian.html '
 #to do a 301 redirection we have to add a rewrite line to the avalable sites file
-# rewrite ^/(.*)/redirect_me$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-# we have to put it in witha bash script using sed
-# where i don't yet know
