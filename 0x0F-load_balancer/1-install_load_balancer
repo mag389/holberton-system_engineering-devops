@@ -14,7 +14,11 @@ option forwardfor\
 default_backend web-backend\
 #--\
 #Backend\
-#--"
+#--\
+backend web-backend\
+balance roundrobin\
+server 1660-web-01 35.227.79.31\
+server 1660-web-02 35.243.199.170\"
 sudo echo "$conf" | tee -a /etc/haproxy/haproxy.cfg 
 sudo echo "ENABLED=1" | tee -a /etc/default/haproxy
 
