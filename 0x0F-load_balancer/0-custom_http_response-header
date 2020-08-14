@@ -14,14 +14,14 @@ sudo sed -i "/# SSL configuration/$newstring/" /etc/nginx/sites-available/defaul
 sudo service nginx restart
 
 # 404 page
-sudo bash -c "echo \"Ceci n'est pas une page\" > /usr/share/nginx/html/not_found.html"
-newstring="error_page 404 /custom_404.html;\
-	location = /custom_404.html {\
-		root /usr/share/nginx/html;\
-		internal;\
-	}"
-sudo sed -i "/# listen 443 ssl default_server;/$newstring/" /etc/nginx/sites-available/default
-sudo service nginx restart
+# sudo bash -c "echo \"Ceci n'est pas une page\" > /usr/share/nginx/html/not_found.html"
+# newstring="error_page 404 /custom_404.html;\
+#	location = /custom_404.html {\
+#		root /usr/share/nginx/html;\
+#		internal;\
+#	}"
+#sudo sed -i "/# listen 443 ssl default_server;/$newstring/" /etc/nginx/sites-available/default
+#sudo service nginx restart
 
 # custom html header
 newstring="add_header X-Served-By $hostname;"
