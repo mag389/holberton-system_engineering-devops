@@ -7,7 +7,7 @@ conf="#--\
 #Frontend\
 #--\
 frontend main\
-bind *:80\
+bind :80\
 option http-server-close\
 option forwardfor\
 default_backend web-backend\
