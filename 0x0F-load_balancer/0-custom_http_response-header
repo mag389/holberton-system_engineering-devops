@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 # installs nginx on the remote web server, then configures a 404
 sudo apt-get -y update
 sudo apt-get -y install nginx
