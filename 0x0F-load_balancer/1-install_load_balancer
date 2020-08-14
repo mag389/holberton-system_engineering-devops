@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# installing haproxy on a new server
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+# setup the config file
+conf="#--\
+#Frontend\
+#--\
+frontend main\
+bind *:80\
+option http-server-close\
+option forwardfor\
+default_backend web-backend\
+#--\
+#Backend\
+#--"
+sudo echo "$conf" | tee -a /etc/haproxy/haproxy.cfg 
+
+sudo service haproxy restart
