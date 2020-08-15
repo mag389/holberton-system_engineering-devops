@@ -6,21 +6,21 @@ sudo apt-get -y update
 sudo apt-get -y install haproxy=1.8.\*
 
 # setup the config file
-conf="listen www\
-#--\
-#Frontend\
-#--\
-#frontend main\
-bind :80\
-#option http-server-close\
-#option forwardfor\
-#default_backend app-main\
-#--\
-#Backend\
-#--\
-#backend app-main\
-balance roundrobin\
-server 1660-web-01 35.227.79.31:80 check\
+conf="listen www
+#--
+#Frontend
+#--
+#frontend main
+bind :80
+#option http-server-close
+#option forwardfor
+#default_backend app-main
+#--
+#Backend
+#--
+#backend app-main
+balance roundrobin
+server 1660-web-01 35.227.79.31:80 check
 server 1660-web-02 35.243.199.170:80 check"
 sudo echo "$conf" | tee -a /etc/haproxy/haproxy.cfg 
 sudo echo "ENABLED=1" | tee -a /etc/default/haproxy
