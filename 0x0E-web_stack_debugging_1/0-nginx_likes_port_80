@@ -10,5 +10,7 @@ sudo service nginx restart
 # changes the sites available file
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# remove ipv6 requirement
+sudo sed 's/ ipv6only=on;/;/' /etc/nginx/sites-available/default
 # restart
 sudo service nginx restart
