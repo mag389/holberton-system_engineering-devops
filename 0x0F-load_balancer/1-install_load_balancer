@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # installing haproxy on a new server
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-1.6
 sudo apt-get -y update
-sudo apt-get -y install haproxy
+sudo apt-get -y install haproxy=1.6.\*
+
 # setup the config file
 conf="listen www\
 #--\
