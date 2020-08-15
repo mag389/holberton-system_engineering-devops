@@ -14,5 +14,5 @@
 # 	sudo sed 's/ ipv6only=on;/;/' /etc/nginx/sites-available/default
 # restart
 # other option is to just literally replace the port number
-sudo sed 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
