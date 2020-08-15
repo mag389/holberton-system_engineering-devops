@@ -5,8 +5,8 @@
 # pid is `pgrep -u root nginx`
 # to see where it goes try nginx -s reload
 # put pid into /run/nginx.pid file it belongs
-pgrep -u root nginx > /run/nginx.pid
-sudo service nginx restart
+# pgrep -u root nginx > /run/nginx.pid
+# sudo service nginx restart
 # changes the sites available file
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
