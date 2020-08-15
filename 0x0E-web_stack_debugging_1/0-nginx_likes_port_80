@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# change nginx setting to allow port 80
+# must tart by getting nginx running
+# use top to see processes
+# pid is `pgrep -u root nginx`
+# to see where it goes try nginx -s reload
+# put pid into /run/nginx.pid file it belongs
+pgrep -u root nginx > /run/nginx.pid
+sudo service nginx restart
+# changes the sites available file
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# restart
+sudo service nginx restart
