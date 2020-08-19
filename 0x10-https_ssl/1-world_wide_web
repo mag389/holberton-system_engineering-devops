@@ -4,8 +4,8 @@
 # dig webmike.tech | awk '/ANSWER SECTION:/ {getline; print "The subdomain X is " $4 " record and points to " $5}'
 # shellcheck disable=SC2086
 function e {
-        dig "$2.$1" | awk '/ANSWER SECTION:/ {getline; print "The subdomain '$2' is " $4 " record and points to " $5}'
-
+        dig "$2.$1" | awk '/ANSWER SECTION:/ {getline; print "The subdomain '$2' is a " $4 " record and points to " $5}'
+	return 0
 }
 
 if [ $# -eq 2 ]
@@ -18,3 +18,4 @@ else
     e "$1" "web-01"
     e "$1" "web-02"
 fi
+exit 0
