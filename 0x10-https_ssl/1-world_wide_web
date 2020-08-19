@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# displays info baout subdomains
+# 2 args:1-domain as string. 2-optional subdomain
+# dig webmike.tech | awk '/ANSWER SECTION:/ {getline; print "The subdomain X is " $4 " record and points to " $5}'
+# shellcheck disable=SC2086
+function e {
+        dig "$2.$1" | awk '/ANSWER SECTION:/ {getline; print "The subdomain '$2' is " $4 " record and points to " $5}'
+
+}
+
+if [ $# -eq 2 ]
+then
+#    dig "$2.$1" | awk '/ANSWER SECTION:/ {getline; print "The subdomain '$2' is " $4 " record and points to " $5}'
+    e "$1" "$2"
+else
+    e "$1" "www"
+    e "$1" "lb-01"
+    e "$1" "web-01"
+    e "$1" "web-02"
+fi
