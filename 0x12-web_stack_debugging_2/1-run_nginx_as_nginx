@@ -4,5 +4,6 @@ sudo echo "user nginx;" | sudo tee -a /etc/nginx/nginx.conf
 sudo sed -i "s/80/8080/g" /etc/nginx/sites-enabled/default
 sudo apt-get -y install lsof
 # shellcheck disable=SC2046
-sudo kill $(sudo lsof -t -i:8080)
+# sudo kill $(sudo lsof -t -i:8080)
+sudo kill apache2
 sudo service nginx restart
