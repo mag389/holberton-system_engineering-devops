@@ -5,5 +5,5 @@ sudo sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo apt-get -y install lsof
 # shellcheck disable=SC2046
-sudo kill $(lsof -t -i:8080)
+sudo kill $(sudo lsof -t -i:8080)
 sudo service nginx restart
