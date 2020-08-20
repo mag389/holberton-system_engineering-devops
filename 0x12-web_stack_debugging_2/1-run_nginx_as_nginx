@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# changes server to run nginx as nginx
+sudo echo "user nginx;" | sudo tee -a /etc/nginx/nginx.conf
+sudo service nginx restart
