@@ -1,0 +1,17 @@
+The purpose of this project is primary-replica databse synchronization
+to do that we need one last thing:
+on the primary server (web-01, 35.227.79.31)
+we create a new user for the replica server
+to do so:
+enter mysql: 'sudo mysql -uroot -hlocalhost'
+CREATE USER IF NOT EXISTS 'replica_user'@'%';
+# SET PASSWORD FOR 'replica_user'@'%' = 'deckard';
+(i didn't set up a password for now)
+
+the replica user must be able to replicate
+GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
+
+holbertonuser needs to chekc user info for this task
+GRANT SELECT ON mysql.user TO 'holberton_user'@'localhost';
+
+
