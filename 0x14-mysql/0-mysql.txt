@@ -24,3 +24,8 @@ SELECT user, host FROM mysql.user;
 although they all start off with just localhost
 
 that is all the tasks to be done, but the checker wants more.
+Currently the checker only has access to one of the servers,
+we have to add their key to the other server. that is 0x0B task 3
+
+to do so imply add the new public key to the file ~/.ssh/authorized_keys
+once that's done you get all checks
