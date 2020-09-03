@@ -1,0 +1,26 @@
+The first task is to install mysql 5.7.x on the two web servers
+first get into the web servers with:
+'ssh ubuntu@35.227.79.31'
+and
+'ssh ubuntu@35.243.199.170'
+those are web servers 01 and 02 (private key is stored in a file)
+see project 0x0B-ssh for more details
+
+then once on each server
+
+sudo apt install mysql-server
+(use 'sudo apt install -y mysql-server' for ease)
+
+you can check installation with 'mysql --version'
+
+it may ask password when entering mysql. you can void that by using sudo
+i.e. 'sudo mysql -uroot -hlocalhost'
+alternatively in the file /etc/mysql/debian.cnf it hsould contain that info
+
+you can check users with:
+SELECT user FROM mysql.user;
+to see all users. even better is 
+SELECT user, host FROM mysql.user;
+although they all start off with just localhost
+
+that is all the tasks to be done, but the checker wants more.
