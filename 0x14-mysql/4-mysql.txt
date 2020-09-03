@@ -1,0 +1,41 @@
+Finally actually setting up the primary/replica (master/slave) 
+to do this we edit the mysql config files found in the servers at
+/etc/mysql/mysql.conf.d/mysqld.cnf
+for server 1:
+holberton didn't want us to use the bind address conditional so we comment that out
+(bind address is line 43)
+
+then we have to uncomment the server-id: this must be unique, but we only have 2 servers 
+so we'll go with server 1 (line 83)
+
+uncomment lin 'log_bin                 = /var/log/mysql/mysql-bin.log'
+roughly line 84
+that's where slave copies from basically
+
+finallly designte the db that will be replicated on the slave server
+change the binlog_do_db = ... line
+from
+#binlog_do_db            = include_database_name
+to
+binlog_do_db             = tyrell_corp
+
+from there we move on to changin things in sql or the other server:
+restart mysql: 'sudo service mysql restart'
+get master stats of db: 'sudo mysql -uroot', 'use tyrell_corp;', 'SHOW MASTER STATUS;'
+that will give info about the master such as position (154 for me)
+
+Then we're good to move onto the slave DB:
+first is to again change configuration of /etc/mysql/mysql.conf.d/mysqld.cnf
+for replica we do use bind address: to 35.243.199.170 line 43
+server-id = 2 (line 83)
+uncomment log bin (line 84):
+uncomment binlog_do_db (line 87) and change db to tyrell_corp
+	binlog_do_db            = tyrell_corp
+add line 'relay-log               = /var/log/mysql/mysql-relay-bin.log'
+	(i did line 88)
+
+THen it's onto the mysql portion:
+CHANGE MASTER TO MASTER_HOST='35.227.79.31',MASTER_USER='replica_user', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=  154;
+START SLAVE;
+
+then it shold be good check with 'SHOW SLAVE STATUS\G' (\G for readability

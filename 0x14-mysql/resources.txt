@@ -1,0 +1,19 @@
+list of some of the link i used for this project:
+form:link then brief description on next line
+
+https://www.hostinger.com/tutorials/mysql-show-users/#:~:text=Show%20MySQL%20Users,have%20been%20created%20in%20MySQL.
+how to create and view mysql users and data about them, can be useful for some things
+
+https://github.com/mag389/AirBnB_clone_v2/blob/master/setup_mysql_dev.sql
+https://github.com/mag389/holbertonschool-higher_level_programming/tree/master/0x0E-SQL_more_queries
+two of my mysql tasks done previously that are useful
+
+https://www.w3schools.com/php/php_mysql_create_table.asp
+table creation just to review
+
+https://dev.mysql.com/doc/refman/8.0/en/replication-howto-repuser.html#:~:text=To%20create%20a%20new%20account,only%20the%20REPLICATION%20SLAVE%20privilege.
+the first actually useful link: describes master replicant stuff and user permissions 
+for replica users.  figures the actual mysql database would be good once i found the right spot
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-master-slave-replication-in-mysql
+holberton link to digitalocean setting up master slave replication in mysql.
