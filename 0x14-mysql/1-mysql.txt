@@ -1,0 +1,15 @@
+The second task is to setup users for each mysql installation
+
+create user:'holberton_user'@'localhost' 
+with pwd 'projectcorrection280hbtn'
+give holberton_user permission to check primary/replica status of databases.
+
+to do so:
+CREATE USER IF NOT EXISTS 'holberton_user'@'localhost';
+SET PASSWORD FOR 'holberton_user'@'localhost' = 'projectcorrection280hbtn';
+GRANT REPLICATION CLIENT ON *.* TO 'holberton_user'@'localhost';
+
+then check with 
+SELECT user, host FROM mysql.user;
+
+(if you can't enter mysql use 'sudo mysql -uroot -hlocalhost')
