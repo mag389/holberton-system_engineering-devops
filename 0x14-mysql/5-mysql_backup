@@ -2,8 +2,7 @@
 # creates tar zip file from sql dump
 # should contain dump of all databases
 # dump named backup.sql
-#arhive will be day-month-year.tar.gz
-# connect with root
-#argv password
+# argv[1] is password to root (use root)
 mysqldump -u root -p"$1" --all-databases > backup.sql
+# craete archive named day month year from it
 tar -czf "$(date +%d-%m-%Y)".tar.gz backup.sql
