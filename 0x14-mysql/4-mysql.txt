@@ -35,7 +35,7 @@ add line 'relay-log               = /var/log/mysql/mysql-relay-bin.log'
 	(i did line 88)
 
 THen it's onto the mysql portion:
-CHANGE MASTER TO MASTER_HOST='35.227.79.31',MASTER_USER='replica_user', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=  154;
+CHANGE MASTER TO MASTER_HOST='35.227.79.31',MASTER_USER='replica_user', MASTER_PASSWORD='deckard', MASTER_LOG_FILE='mysql-bin.000005', MASTER_LOG_POS=  1272;
 START SLAVE;
 
 then it shold be good check with 'SHOW SLAVE STATUS\G' (\G for readability
