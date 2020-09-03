@@ -1,0 +1,21 @@
+The next step is creating the db structure to use:
+that means creating the db, tables within it, granting permission to checker
+
+to create table enter mysql (sudo mysql -uroot -hlocalhost)
+CREATE DATABASE IF NOT EXISTS tyrell_corp;
+
+then to create the table within it:
+USE tyrell_corp;
+CREATE TABLE IF NOT EXISTS nexus6 (
+id INT,
+name VARCHAR(256));
+
+they want at least one entry to add one:
+INSERT INTO `nexus6` (`id`, `name`) VALUES (1, 'Leon');
+
+they also want holberton_user to have select permission on the table:
+GRANT SELECT ON tyrell_corp.nexus6 TO 'holberton_user'@'localhost';
+
+to check inserted data: 'SELECT * from nexus6;'
+
+to check permissions: `SHOW GRANTS FOR 'holberton_user'@'localhost';`
