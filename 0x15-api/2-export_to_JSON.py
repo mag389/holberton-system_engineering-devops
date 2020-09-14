@@ -18,11 +18,11 @@ if __name__ == "__main__":
     task_dict = r_task.json()
     # print(type(task_dict))
     # print(task_dict)
-    retval = {"2": []}
+    retval = {employee: []}
     task_list = []
     username = user_dict["username"]
     for task in task_dict:
-        retval['2'].append({"task": task['title'],
+        retval[employee].append({"task": task['title'],
                             "completed": task['completed'],
                             "username": username})
     filename = employee + '.json'
