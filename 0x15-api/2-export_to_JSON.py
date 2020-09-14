@@ -27,5 +27,5 @@ if __name__ == "__main__":
                             "username": username})
     filename = employee + '.json'
     with open(filename, 'w+') as f:
-        string = json.dumps("{}".format(retval))
+        string = json.dumps(retval)
         f.write(string)
