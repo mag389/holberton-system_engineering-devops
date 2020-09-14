@@ -23,8 +23,8 @@ if __name__ == "__main__":
     username = user_dict["username"]
     for task in task_dict:
         retval[employee].append({"task": task['title'],
-                            "completed": task['completed'],
-                            "username": username})
+                                 "completed": task['completed'],
+                                 "username": username})
     filename = employee + '.json'
     with open(filename, 'w+') as f:
         string = json.dumps(retval)
