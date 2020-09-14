@@ -18,7 +18,7 @@ if __name__ == "__main__":
     user_dict = r_user.json()
     task_dict = r_task.json()
 
-    name = user_dict['name']
+    name = user_dict['username']
     filename = employee + '.csv'
     with open(filename, 'w+', newline='') as csvfile:
         linewriter = csv.writer(csvfile, delimiter=',', quotechar='"',
