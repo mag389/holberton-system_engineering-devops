@@ -26,6 +26,6 @@ if __name__ == "__main__":
                             "completed": task['completed'],
                             "username": username})
     filename = employee + '.json'
-    with open(filename, 'w+', newline='') as f:
-        string = json.dumps(retval)
+    with open(filename, 'w+') as f:
+        string = json.dumps("{}".format(retval))
         f.write(string)
