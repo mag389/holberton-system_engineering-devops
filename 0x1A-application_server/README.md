@@ -5,4 +5,4 @@ or static data, an application server delivers dynamic content, usually interact
 
 In the case of this project the dynamic content takes the form of an Airbnb clone running on a server.
 
-
+For this project I use the Gunicorn application server program.`
