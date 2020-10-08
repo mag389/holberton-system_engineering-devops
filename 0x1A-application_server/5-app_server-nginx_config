@@ -1,0 +1,42 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	location /hbnb_static {
+	    alias /data/web_static/current/;
+	    index index.html;
+	}
+        location /airbnb-onepage/ {
+            proxy_pass http://0.0.0.0:5000/airbnb-onepage;
+        }
+	location ~/number_odd_or_even/([0-9]+) {
+	    proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
+	}
+	location ~/api/(.+) {
+	    proxy_pass http://0.0.0.0:5002;
+	}
+	location /static {
+	    alias /home/ubuntnu/AirBnB_clone_v4/web_dynamic/static;
+	}
+	location / {
+	    rewrite / /2-hbnb break;
+	    proxy_pass http://0.0.0.0:5003;
+	    try_files $uri $uri/ =404;
+	}
+	location /tester {
+            alias /var/www/html/;
+            index tester.html;
+        }
+        rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+        add_header  X-Served-By $hostname;
+	error_page 404 /not_found.html;
+	location = /not_found.html {
+		root /usr/share/nginx/html;
+		internal;
+	}
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name web-01;
+#	location / {
+#		try_files $uri $uri/ =404;
+#	}
+}
